@@ -1,13 +1,25 @@
 <template>
     <div id="app">
-        <nav>
-            <router-link to="/profile">Mis datos</router-link>
-            <router-link to="/tasks">Mis tareas</router-link>
-            <router-link to="/refunds">Mis devoluciones</router-link>
-        </nav>
-        <router-view />
+        <!-- Header-->
+        <!-- Primary nav -->
+        <PrimaryNav />
+        <!-- Secondary nav -->
+        <SecondaryNav />
     </div>
 </template>
+
+<script>
+import PrimaryNav from '@/components/Header/PrimaryNav.vue';
+import SecondaryNav from '@/components/Header/SecondaryNav.vue';
+
+export default {
+    name: 'App',
+    components: {
+        PrimaryNav,
+        SecondaryNav,
+    },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -15,7 +27,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    background-color: $default-gray-background;
+    color: $dark-gray;
 }
 
 nav {
