@@ -8,4 +8,12 @@
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.logo-home-container {
+    max-height: 20px;
+
+    img {
+        max-height: 20px;
+    }
+}
+</style>

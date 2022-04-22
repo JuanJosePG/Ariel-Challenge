@@ -9,15 +9,19 @@
                     aria-expanded="false"
                     data-target="navbarBasicExample"
                 >
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-
-                    <div class="icon menu-icon"></div>
+                    <img
+                        class="icon-custom"
+                        src="@/assets/icons/Menu.svg"
+                        alt=""
+                    />
                 </a>
             </div>
-            <button>
-                <div class="icon search-icon"></div>
+            <button class="navbar-search">
+                <img
+                    class="icon-custom"
+                    src="@/assets/icons/Search.svg"
+                    alt=""
+                />
             </button>
             <div class="navbar-brand">
                 <a
@@ -29,12 +33,20 @@
             </div>
             <div class="navbar-profile">
                 <a href="#">
-                    <div class="icon profile-icon"></div>
+                    <img
+                        class="icon-custom"
+                        src="@/assets/icons/Login.svg"
+                        alt=""
+                    />
                 </a>
             </div>
             <div class="navbar-cart">
                 <a href="#">
-                    <div class="icon cart-icon"></div>
+                    <img
+                        class="icon-custom"
+                        src="@/assets/icons/Cart.svg"
+                        alt=""
+                    />
                 </a>
             </div>
         </nav>
@@ -59,36 +71,44 @@ export default {
         padding: 15px;
         max-height: 62px;
         border-bottom: 1px solid $light-gray;
+        display: flex;
+        justify-content: space-between;
 
         .navbar-burger {
             margin-left: 0;
         }
 
-        .navbar-brand {
-            margin: 0 auto;
+        .navbar-burger,
+        .navbar-search,
+        .navbar-profile {
+            max-width: 20px;
+            max-height: 20px;
         }
 
-        button.icon,
-        a.icon {
-            // width, height, background-repeat, etc...
-            width: 50px;
-            height: 50px;
+        .navbar-cart {
+            max-width: 25px;
+            max-height: 20px;
+        }
 
-            .menu-icon {
-                // background-image: $menu-icon;
-            }
-            .search-icon {
-                background-image: $search-icon;
-                background-repeat: no-repeat;
-            }
+        .navbar-search {
+            padding: 0;
+            background-color: transparent;
+            outline: none;
+            border: none;
+        }
 
-            .profile-icon {
-                // background-image: $profile-icon;
-            }
+        .navbar-brand {
+            max-height: 20px;
+            min-height: auto;
 
-            .cart-icon {
-                // background-image: $cart-icon;
+            .navbar-item {
+                padding: 0;
             }
+        }
+
+        .icon-custom {
+            width: 100%;
+            height: 100%;
         }
     }
 }
