@@ -8,6 +8,16 @@ Vue.use(VueRouter);
 
 const routes = [
     {
+        path: '/',
+        redirect: () => {
+            return {
+                path: '/tasks',
+                name: 'task',
+                component: TasksView,
+            };
+        },
+    },
+    {
         path: '/profile',
         name: 'profile',
         component: ProfileView,
