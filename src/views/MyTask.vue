@@ -1,41 +1,43 @@
 <template>
     <div class="task-page">
-        <div class="title-wrapper">
-            <h1 class="task-page-title">Mis tareas</h1>
-            <button
-                class="delete-full-list button is-danger"
-                @click="removeAll()"
-            >
-                Borrar todo
-            </button>
-        </div>
+        <div class="task-container">
+            <div class="title-wrapper">
+                <h1 class="task-page-title">Mis tareas</h1>
+                <button
+                    class="delete-full-list button is-danger"
+                    @click="removeAll"
+                    v-if="todos.length"
+                >
+                    Borrar todo
+                </button>
+            </div>
 
-        <!-- todo items -->
-        <div v-if="todos.length">
-            <ToDoItem
-                v-for="todo in todos"
-                :key="todo.id"
-                :todo="todo"
-                @remove="removeItem"
+            <!-- todo items -->
+            <div v-if="todos.length">
+                <ToDoItem
+                    v-for="todo in todos"
+                    :key="todo.id"
+                    :todo="todo"
+                    @remove="removeItem"
+                />
+            </div>
+            <div v-else>
+                <h2>No tienes ninguna tarea creada, empieza ahora!</h2>
+            </div>
+            <!-- todo input -->
+            <button
+                class="modal-trigger add-todo-item-button"
+                data-target="modal-todo-item"
+                @click="showModal = true"
+            >
+                Añadir tarea
+            </button>
+            <AddToDoItem
+                @changeValue="setFalseValue"
+                @inputData="addToDo"
+                v-if="showModal"
             />
         </div>
-        <div v-else>
-            <h2>No tienes ninguna tarea creada, empieza ahora!</h2>
-        </div>
-        <!-- todo input -->
-        <button
-            class="modal-trigger add-todo-item-button"
-            data-target="modal-todo-item"
-            @click="showModal = true"
-        >
-            Añadir tarea
-        </button>
-        <AddToDoItem
-            :activeModal="showModal"
-            @changeValue="setFalseValue"
-            v-model="newTodoItem"
-            @keydown.enter="addTodo"
-        />
     </div>
 </template>
 
@@ -43,7 +45,12 @@
 import ToDoItem from '@/components/ToDo/ToDoItem.vue';
 import AddToDoItem from '@/components/ToDo/AddToDoItem.vue';
 
-let idTodoNext = 1;
+// Soy consciente que no es la manera correcta pero me daba muchos fallos que no
+//  entendía a la hora de importarlo en el main.js
+import axios from 'axios';
+
+const maxApiElemsToShow = 3;
+let idTodoNext = maxApiElemsToShow + 1;
 
 export default {
     name: 'MyTask',
@@ -54,41 +61,32 @@ export default {
     data() {
         return {
             showModal: false,
+            infoApi: null,
             newTodoItem: {
                 title: '',
                 text: '',
             },
-            todos: [
-                {
-                    id: idTodoNext++,
-                    title: 'Prueba1',
-                    text: 'Texto1',
-                },
-                {
-                    id: idTodoNext++,
-                    title: 'Prueba2',
-                    text: 'Texto2',
-                },
-                {
-                    id: idTodoNext++,
-                    title: 'Prueba3',
-                    text: 'Texto3',
-                },
-            ],
+            todos: [],
         };
     },
     mounted() {
-        // axios -> instalar y recoger info
+        axios
+            .get('https://jsonplaceholder.typicode.com/todos/')
+            .then((response) => {
+                this.infoApi = response.data;
+                this.loadTodosFromApi(this.infoApi);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
     methods: {
-        addToDo() {
-            if (this.newTitleTodo) {
-                this.todos.push({
-                    id: idTodoNext++,
-                    title: this.newTodoItem.title,
-                    text: this.newTodoItem.text,
-                });
-            }
+        addToDo(elem) {
+            this.todos.push({
+                id: idTodoNext++,
+                title: elem.title,
+                text: elem.text,
+            });
         },
         removeItem(idToRemove) {
             this.todos = this.todos.filter((elem) => {
@@ -97,9 +95,15 @@ export default {
         },
         removeAll() {
             this.todos = [];
+            idTodoNext = 0;
         },
-        setFalseValue(value) {
-            this.showModal = value;
+        setFalseValue() {
+            this.showModal = false;
+        },
+        loadTodosFromApi() {
+            for (let i = 0; i < maxApiElemsToShow; i++) {
+                this.todos.push(this.infoApi[i]);
+            }
         },
     },
 };
