@@ -58,7 +58,6 @@ export default {
     right: 0;
 
     .navbar {
-        display: flex;
         padding: 15px;
         max-height: 62px;
         border-bottom: 1px solid $light-gray;

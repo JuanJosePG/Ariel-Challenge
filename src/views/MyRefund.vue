@@ -1,10 +1,12 @@
 <template>
     <div class="refund-page">
-        <div v-if="hasRefunds">
-            <!-- Refunds hechas -->
-        </div>
-        <div class="no-refunds" v-else>
-            <h1>No tienes ninguna devolución hecha o pendiente.</h1>
+        <div class="refund-container">
+            <div v-if="hasRefunds">
+                <!-- Refunds hechas -->
+            </div>
+            <div class="no-refunds" v-else>
+                <h1>No tienes ninguna devolución hecha o pendiente.</h1>
+            </div>
         </div>
     </div>
 </template>

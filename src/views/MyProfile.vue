@@ -1,31 +1,33 @@
 <template>
     <div class="profile-page">
-        <!-- Se que esto se podría componetizar y tal, pero era por poner algo de información rápida -->
-        <div class="main-info">
-            <h1 class="title-section">Información personal</h1>
-            <p class="label-info">Nombre y apellidos</p>
-            <p class="info">Juan José Piñón García</p>
-            <p class="label-info">Correo electrónico</p>
-            <p class="info">jjpg.2312@gmail.com</p>
-            <p class="label-info">Fecha de nacimiento</p>
-            <p class="info">23/12/1994</p>
-        </div>
-        <div class="main-info">
-            <h1 class="title-section">Hobbys</h1>
-            <p>Gimnasio, padel, pasear por la montaña</p>
-            <p>Aprender de lo que sea</p>
-            <p>Hacer reír a la gente</p>
-        </div>
-        <div class="main-info">
-            <h1 class="title-section">Mascotas</h1>
-            <p class="info-icon">
-                <SimpleIcon :iconName="'Cat'" :alt="'Cat icon'" />
-                Gata
-            </p>
-            <p class="info-icon">
-                <SimpleIcon :iconName="'Ant'" :alt="'Ant icon'" />
-                Hormigas
-            </p>
+        <div class="profile-container">
+            <!-- Se que esto se podría componetizar y tal, pero era por poner algo de información rápida -->
+            <div class="main-info">
+                <h1 class="title-section">Información personal</h1>
+                <p class="label-info">Nombre y apellidos</p>
+                <p class="info">Juan José Piñón García</p>
+                <p class="label-info">Correo electrónico</p>
+                <p class="info">jjpg.2312@gmail.com</p>
+                <p class="label-info">Fecha de nacimiento</p>
+                <p class="info">23/12/1994</p>
+            </div>
+            <div class="main-info">
+                <h1 class="title-section">Hobbys</h1>
+                <p>Gimnasio, padel, pasear por la montaña</p>
+                <p>Aprender de lo que sea</p>
+                <p>Hacer reír a la gente</p>
+            </div>
+            <div class="main-info">
+                <h1 class="title-section">Mascotas</h1>
+                <p class="info-icon">
+                    <SimpleIcon :iconName="'Cat'" :alt="'Cat icon'" />
+                    Gata
+                </p>
+                <p class="info-icon">
+                    <SimpleIcon :iconName="'Ant'" :alt="'Ant icon'" />
+                    Hormigas
+                </p>
+            </div>
         </div>
     </div>
 </template>

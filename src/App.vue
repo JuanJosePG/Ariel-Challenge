@@ -27,13 +27,22 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: $dark-gray;
+    color: $neutral-60;
 
     .profile-page,
     .task-page,
     .refund-page {
         background-color: $default-gray-background;
         overflow: scroll;
+    }
+
+    .profile-container,
+    .task-container,
+    .refund-container {
+        @media (max-width: 991.9px) {
+            max-width: 450px;
+            margin: 0 auto;
+        }
     }
 }
 </style>

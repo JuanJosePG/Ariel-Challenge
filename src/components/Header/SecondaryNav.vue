@@ -27,14 +27,18 @@
 
         text-overflow: clip;
         white-space: nowrap;
-        overflow: hidden;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         a {
             margin: 0 15px 0 0;
-            color: $dark-gray;
+            color: $neutral-60;
             font-weight: 600;
             line-height: 50px;
-            width: 120px;
+            min-width: 120px;
             height: 50px;
             display: inline-block;
         }
