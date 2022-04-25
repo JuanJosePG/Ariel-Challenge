@@ -9,19 +9,11 @@
                     aria-expanded="false"
                     data-target="navbarBasicExample"
                 >
-                    <img
-                        class="icon-custom"
-                        src="@/assets/icons/Menu.svg"
-                        alt=""
-                    />
+                    <SimpleIcon :iconName="'Menu'" :alt="'Menu icon'" />
                 </a>
             </div>
             <button class="navbar-search">
-                <img
-                    class="icon-custom"
-                    src="@/assets/icons/Search.svg"
-                    alt=""
-                />
+                <SimpleIcon :iconName="'Search'" :alt="'Search icon'" />
             </button>
             <div class="navbar-brand">
                 <a
@@ -33,20 +25,12 @@
             </div>
             <div class="navbar-profile">
                 <a href="#">
-                    <img
-                        class="icon-custom"
-                        src="@/assets/icons/Login.svg"
-                        alt=""
-                    />
+                    <SimpleIcon :iconName="'Login'" :alt="'Login icon'" />
                 </a>
             </div>
             <div class="navbar-cart">
                 <a href="#">
-                    <img
-                        class="icon-custom"
-                        src="@/assets/icons/Cart.svg"
-                        alt=""
-                    />
+                    <SimpleIcon :iconName="'Cart'" :alt="'Cart icon'" />
                 </a>
             </div>
         </nav>
@@ -55,17 +39,24 @@
 
 <script>
 import LogoHome from '@/components/common/LogoHome.vue';
+import SimpleIcon from '@/components/common/SimpleIcon.vue';
 
 export default {
     name: 'PrimaryNav',
     components: {
         LogoHome,
+        SimpleIcon,
     },
 };
 </script>
 
 <style lang="scss" scoped>
 .primary-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
     .navbar {
         display: flex;
         padding: 15px;

@@ -27,20 +27,13 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    background-color: $default-gray-background;
     color: $dark-gray;
-}
 
-nav {
-    padding: 30px;
-
-    a {
-        font-weight: bold;
-        color: #2c3e50;
-
-        &.router-link-exact-active {
-            color: #42b983;
-        }
+    .profile-page,
+    .task-page,
+    .refund-page {
+        background-color: $default-gray-background;
+        overflow: scroll;
     }
 }
 </style>

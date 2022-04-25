@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="secondary-nav">
         <nav>
             <router-link to="/profile">Mis datos</router-link>
             <router-link to="/tasks">Mis tareas</router-link>
@@ -12,30 +12,37 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-nav {
-    background-color: white;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.12);
+.secondary-nav {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
 
-    height: 50px;
-    padding: 0 10px;
+    nav {
+        background-color: white;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.12);
 
-    text-overflow: clip;
-    white-space: nowrap;
-    overflow: hidden;
-
-    a {
-        margin: 0 15px 0 0;
-        color: $dark-gray;
-        font-weight: 600;
-        line-height: 50px;
-        width: 120px;
         height: 50px;
-        display: inline-block;
-    }
+        padding: 0 10px;
 
-    .router-link-active {
-        color: $main-green;
-        border-bottom: 4px solid $main-green;
+        text-overflow: clip;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a {
+            margin: 0 15px 0 0;
+            color: $dark-gray;
+            font-weight: 600;
+            line-height: 50px;
+            width: 120px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .router-link-active {
+            color: $main-green;
+            border-bottom: 4px solid $main-green;
+        }
     }
 }
 </style>
