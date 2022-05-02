@@ -1,4 +1,4 @@
-# Arial Challenge 
+# Ariel Challenge 
 
 ## Project setup
 ```
