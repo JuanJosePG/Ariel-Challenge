@@ -1,8 +1,8 @@
 <template>
     <div class="todo-item" :id="'todoItem-' + todo.id">
         <div class="item-info">
-            <h2>{{ todo.title }}</h2>
-            <p>{{ todo.text }}</p>
+            <h2 class="item-info-title">{{ todo.title }}</h2>
+            <p class="item-info-text">{{ todo.text }}</p>
         </div>
         <button class="remove-icon" @click="$emit('remove', todo.id)">
             <SimpleIcon :iconName="'Trash'" :alt="'Trash icon'" />
@@ -38,8 +38,8 @@ export default {
     margin-bottom: 15px;
 
     .item-info {
-        h2,
-        p {
+        .item-info-title,
+        .item-info-text {
             text-align: left;
             max-width: 230px;
             overflow: hidden;
@@ -50,7 +50,7 @@ export default {
             }
         }
 
-        h2 {
+        .item-info-title {
             font-size: 16px;
             color: $neutral-80;
             font-weight: 600;
@@ -58,7 +58,7 @@ export default {
             white-space: nowrap;
         }
 
-        p {
+        .item-info-text {
             font-size: 12px;
             color: $neutral-40;
             font-weight: 400;

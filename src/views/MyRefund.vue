@@ -5,7 +5,9 @@
                 <!-- Refunds hechas -->
             </div>
             <div class="no-refunds" v-else>
-                <h1>No tienes ninguna devolución hecha o pendiente.</h1>
+                <h1 class="no-refunds-title">
+                    No tienes ninguna devolución hecha o pendiente.
+                </h1>
             </div>
         </div>
     </div>
@@ -33,7 +35,7 @@ export default {
         justify-content: center;
         align-items: center;
 
-        h1 {
+        .no-refunds-title {
             font-size: 20px;
             font-weight: bold;
         }

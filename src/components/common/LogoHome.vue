@@ -12,7 +12,7 @@
 .logo-home-container {
     max-height: 20px;
 
-    img {
+    .logo-home {
         max-height: 20px;
     }
 }
