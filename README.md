@@ -18,6 +18,10 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
+
+or 
+
+npm run format
 ```
 
 ### Customize configuration
