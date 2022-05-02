@@ -1,4 +1,4 @@
-# vue-lab
+# Arial Challenge 
 
 ## Project setup
 ```
